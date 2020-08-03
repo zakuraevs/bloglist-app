@@ -1,0 +1,60 @@
+
+#loggedInIndicator {
+  margin-bottom: 30px;
+  color: white;
+}
+
+#submitNewBlog {
+  margin-top: 10px;
+}
+
+#toggalbeShowButton {
+  margin-bottom: 10px;
+}
+
+#toggalbeCancelButton {
+  margin-bottom: 10px;
+}
+
+#loggedInText {
+  color: #047bfe;
+}
+
+#logOutButton {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#loginButton {
+  margin-top: 10px;
+}
+
+#addCommentButton {
+  margin-top: 10px;
+}
+
+#singleBlogTitle {
+  margin: 15px;
+}
+
+.note {
+    color: rgb(233, 125, 125);
+    padding-top: 3px;
+    font-size: 15px;
+}
+
+.menuItem {
+  padding: 5px;
+  float: left;
+  height: 10px;
+}
+
+.error {
+  color: gray;
+  background: lightgrey;
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,10 @@
+PUT http://localhost:3003/api/blogs/5f16a7f03e7ca4872ac5815c
+Content-type: application/json
+
+{
+  "user": "5f13b9f672ae3439fd694488",
+  "likes": "2",
+  "author": "sergey",
+  "title": "sergey's blog 2",
+  "url": "bbb.com"
+}
