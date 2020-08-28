@@ -6,6 +6,8 @@ const AddBlogForm = ({ createBlog }) => {
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [url, setUrl] = useState('')
+  const [imageURL, setImageURL] = useState('')
+  const [text, setText ] = useState('')
 
   const addBlog = (event) => {
     event.preventDefault()
@@ -13,19 +15,22 @@ const AddBlogForm = ({ createBlog }) => {
     const blogObject = {
       title: title,
       author: author,
-      url: url
+      url: url,
+      imageURL: imageURL
     }
 
     createBlog(blogObject)
     setTitle('')
     setAuthor('')
     setUrl('')
+    setImageURL('')
+    setText('')
   }
 
   return (
 
     <div>
-      <h2>Create a new blog</h2>
+      <h2>Create a new blog post</h2>
 
       <form onSubmit={addBlog}>
         <Form.Group>
@@ -45,13 +50,21 @@ const AddBlogForm = ({ createBlog }) => {
             name="Author"
             onChange={({ target }) => setAuthor(target.value)}
           />
-          <Form.Label>url:</Form.Label>
+          <Form.Label>Post text:</Form.Label>
           <Form.Control
-            id="url"
+            id="text"
             type="text"
-            value={url}
+            value={text}
             name="Password"
-            onChange={({ target }) => setUrl(target.value)}
+            onChange={({ target }) => setText(target.value)}
+          />
+          <Form.Label>Post image URL:</Form.Label>
+          <Form.Control
+            id="imageURL"
+            type="text"
+            value={imageURL}
+            name="imageURL"
+            onChange={({ target }) => setImageURL(target.value)}
           />
           <Button variant="primary" type="submit" id="submitNewBlog">
             submit

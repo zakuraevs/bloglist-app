@@ -3,12 +3,13 @@ import Togglable from './Togglable'
 import blogService from '../services/blogs'
 import loginService from '../services/login'
 import { useDispatch, useSelector } from 'react-redux'
-import { initializeBlogs, createBlog } from '../reducers/blogsReducer'
+import { initializeBlogs, createBlog, updateBlog } from '../reducers/blogsReducer'
 import { setCredentials } from '../reducers/loginReducer'
 import { setUser } from '../reducers/userReducer'
 import AddBlogForm from './AddBlogForm'
 import { setMessage, removeMessage } from '../reducers/messageReducer'
 import LoginForm from './LoginForm'
+//import '../index.css'
 
 import { Table, Form, Button } from 'react-bootstrap'
 
@@ -72,16 +73,6 @@ const Home = () => {
     }
   }
 
-  /*const logOut = () => {
-      window.localStorage.clear()
-      dispatch(setUser(null))
-      dispatch(setMessage('Logged out successfuly'))
-      setTimeout(() => {
-          dispatch(removeMessage())
-      }, 5000)
-  }*/
-
-  //deal with message
   const addBlog = (blogObject) => {
     dispatch(createBlog(blogObject))
     dispatch(setMessage('Successfuly created a new blog'))
@@ -90,17 +81,31 @@ const Home = () => {
     }, 5000)
   }
 
+  //DUPLICATE CODE!! REMOVE!!
+  const incrementLikes = (blog) => {
+
+    const blogObject = {
+      user: blog.user.id,
+      likes: blog.likes + 1,
+      author: blog.author,
+      title: blog.title,
+      url: blog.url
+    }
+
+    console.log('blog object: ', blogObject)
+
+    dispatch(updateBlog(blogObject, blog.id))
+  }
+
   const blogFormRef = useRef()
 
   const blogForm = () => (
-    <Togglable buttonLabel='new blog' ref={blogFormRef}>
+    <Togglable buttonLabel='new post' ref={blogFormRef}>
       <AddBlogForm
         createBlog={addBlog}
       />
     </Togglable>
   )
-
-
 
   const sortedByLikes = blogs.sort((a, b) => (a.likes > b.likes) ? -1 : 1)
 
@@ -113,19 +118,21 @@ const Home = () => {
           password={credentials.password}
         /> :
         <div>
-          <h2>Blogs</h2>
+          <h2 className={'homeHeader'}>Blog posts</h2>
           {blogForm()}
           <Table striped>
             <tbody>
               {sortedByLikes.map(blog =>
                 <tr key={blog.id}>
-                  <td>
-                    <Link to={`/blogs/${blog.id}`}>
-                      {blog.title}
-                    </Link>
-                  </td>
-                  <td>
-                    {blog.likes} likes
+                  <td className={'homeBlogTitles'}>
+                    <div>
+                      <Link className={'homeBlogTitles'} to={`/blogs/${blog.id}`}>
+                        {blog.title}
+                      </Link><br /><br />
+                      {blog.imageURL ? <img className={'homeBlogImage'} src={blog.imageURL} /> : null}<br />
+                      {blog.likes + ' likes '} {blog.comments.length} {blog.comments.length === 1 ? ' comment' : 'comments'} - posted by {blog.author}
+                      - <Button onClick={() => incrementLikes(blog)} >like</Button>
+                    </div>
                   </td>
                 </tr>
               )}

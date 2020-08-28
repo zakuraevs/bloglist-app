@@ -7,9 +7,6 @@ import blogService from '../services/blogs'
 import { setMessage, removeMessage } from '../reducers/messageReducer'
 import { Table, Form, Button } from 'react-bootstrap'
 
-
-
-
 const Blog = () => {
 
   const [comment, setComment] = useState('')
@@ -41,6 +38,8 @@ const Blog = () => {
     }
   }, [dispatch])
 
+
+  
   const incrementLikes = () => {
 
     const blogObject = {
@@ -83,6 +82,7 @@ const Blog = () => {
           {blog ?
             <div>
               <h1 id="singleBlogTitle">{blog.title}</h1>
+              {blog.imageURL ? <img className={'singleBlogImage'} src={blog.imageURL} /> : null}
               <Table>
                 <tbody>
                   <tr>

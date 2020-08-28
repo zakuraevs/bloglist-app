@@ -7,7 +7,7 @@ import { initializeUsers } from '../reducers/usersReducer'
 
 import { Link } from 'react-router-dom'
 
-import { Table, Form, Button } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 
 const UsersView = () => {
 
@@ -31,15 +31,6 @@ const UsersView = () => {
     }
     console.log('test')
   }, [dispatch])
-
-  // !!! this might be needed
-  /*useEffect(() => {
-    userService
-      .getAll()
-      .then(data => {
-        setUsers(data)
-      })
-  }, [])*/
 
   return (
     <div>

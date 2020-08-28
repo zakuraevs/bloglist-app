@@ -9,7 +9,6 @@ import { setUser } from './reducers/userReducer'
 import blogService from './services/blogs'
 import { Navbar, Nav } from 'react-bootstrap'
 
-
 import {
   BrowserRouter as Router,
   Switch, Route, Link
@@ -19,7 +18,6 @@ import LoggedinMessage from './components/LoggedinMessage'
 const App = () => {
 
   const dispatch = useDispatch()
-
 
   const user = useSelector(state => state.user)
 
