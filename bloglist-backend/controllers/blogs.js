@@ -55,13 +55,28 @@ blogsRouter.post('/', async (request, response) => {
         blog.likes = 0
     }
 
+    if (!('imageURL' in request.body)) {
+        console.log('no image URL was given, defaulting to empty string')
+        blog.imageURL = ''
+    }
+
+    if (!('text' in request.body)) {
+        console.log('no image text was given, defaulting to empty string')
+        blog.text = ''
+    }
+
+    if (!('url' in request.body)) {
+        console.log('no url text was given, defaulting to empty string')
+        blog.text = ''
+    }
+
     console.log(request.body)
     //NB: this doesnt work with the frontend, because both properties
     //are always sent, they are jsut empty.
 
     //checking if author & url are given
     //if not responding with 400 Bad Request
-    if (!('author' in request.body) || !('url' in request.body) || request.body.author === '' || request.body.url === '') {
+    if (!('author' in request.body) || request.body.author === '' ) {
         console.log('author & url missing from request')
         response.status(400).end()
         return
