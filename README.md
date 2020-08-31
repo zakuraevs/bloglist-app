@@ -7,20 +7,17 @@ This project is WIP
 
 ### Contents of the repository:
 - bloglist-backend:
-  directories:
   - build: the frontend build which backend routes lead to
   - controllers: routing for site URLs
   - models: mongoose models for users and posts
   - requests: helper request templates
   - tests
   - utils: helper middleware
-  files:
   - app.js: the file where all the controllers and middleware are applied
   - config.js: a helper file where the environmental variables are defined
   - index.js: the main file where the server is defined
   
 - bloglist-frontend:
-  directories:
   - cypress: testing
   - public: favicon, index.html
   - src: React App, index, components and helper services; Redux reducers
