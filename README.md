@@ -15,12 +15,15 @@ This project is WIP
   - tests
   - utils: helper middleware
   files:
-  - app.js: 
-  
-- bloglist-frontend:
   - app.js: the file where all the controllers and middleware are applied
   - config.js: a helper file where the environmental variables are defined
   - index.js: the main file where the server is defined
+  
+- bloglist-frontend:
+  directories:
+  - cypress: testing
+  - public: favicon, index.html
+  - src: React App, index, components and helper services; Redux reducers
 
 ## You can log in using the following credentials:
 login: sergey
