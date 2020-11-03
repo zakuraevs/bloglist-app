@@ -1,8 +1,6 @@
 ## Single-page social blogging app
 live version: https://polar-taiga-96722.herokuapp.com/
 
-![Website homepage](https://i.imgur.com/cK8Dc3W.png)
-
 This project is WIP
 
 ### Contents of the repository:
